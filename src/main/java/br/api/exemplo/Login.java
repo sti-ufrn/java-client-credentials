@@ -13,7 +13,7 @@ public class Login {
 
     public String logar(String urlBase, String clientId, String clientSecret) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = String.format(urlBase + "authz-server/oauth/token?client_id=%s&client_secret=segredo&grant_type=client_credentials", clientId, clientSecret);
+        String url = String.format(urlBase + "authz-server/oauth/token?client_id=%s&client_secret=%s&grant_type=client_credentials", clientId, clientSecret);
         ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, null, String.class);
         if ( responseEntity.getStatusCode() == HttpStatus.OK ) {
             System.out.println(responseEntity.getBody());
