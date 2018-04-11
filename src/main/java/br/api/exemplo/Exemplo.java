@@ -7,17 +7,20 @@ import java.io.IOException;
  */
 public class Exemplo {
 
-    static String xApiKey = "X-API-KEY";
+    static String urlBaseAutenticacao = "https://autenticacao.info.ufrn.br/";
     static String clientId = "CLIENT-ID";
     static String clientSecret = "CLIENT-SECRET";
-    static String urlBase = "https://apitestes.info.ufrn.br/";
+
+    static String urlBase = "https://api.info.ufrn.br/";
+    static String versao = "v0.1";
+    static String xApiKey = "X-API-KEY";
 
     public static void main(String[] args) throws IOException {
         Login login = new Login();
         Get get = new Get();
 
-        String accessToken = login.logar(urlBase, clientId, clientSecret);
-        get.getData(urlBase, xApiKey, accessToken);
+        String accessToken = login.logar(urlBaseAutenticacao, clientId, clientSecret);
+        get.getData(xApiKey, accessToken, urlBase, versao);
     }
 
 }

@@ -8,10 +8,10 @@ import org.springframework.web.client.RestTemplate;
  */
 public class Get {
 
-    public static void getData(String urlBase, String xApiKey, String token) {
+    public static void getData(String xApiKey, String token, String urlBase, String versao) {
         RestTemplate restTemplate = new RestTemplate();
 
-        String url = urlBase + "curso/<versao>/modalidades-educacao";
+        String url = urlBase + "curso/" + versao + "/modalidades-educacao";
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "bearer " + token);
         headers.add("x-api-key", xApiKey);
